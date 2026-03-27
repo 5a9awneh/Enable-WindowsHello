@@ -1,0 +1,3 @@
+# Logs and backups created by the script at runtime
+EnableHello_*.log
+EnableHello_Backup_*/
