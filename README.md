@@ -76,7 +76,44 @@ flowchart TD
     style AutoRB fill:#8b1a1a,color:#fff
 ```
 
-## 🚀 Quick Start
+## �️ Sample Output
+
+**Interactive menu** (when run without `-Mode`):
+
+```
+  Enable-WindowsHello -- Windows Hello Provisioning Tool
+
+  1. Apply fix     Neutralize policy + enable Hello
+  2. Rollback      Restore from backup (.reg files)
+  3. Reset         Remove script changes (no backup)
+  4. Status        Show current system & registry state
+
+Select [1-4]:
+```
+
+**Status mode** (`-Mode Status`):
+
+```
+[INFO] ═══ Enable-WindowsHello -- STATUS CHECK ═══
+[OK]   Entra ID Joined : YES
+[OK]   AzureAd PRT     : Valid
+[OK]   NGC Seeded      : YES
+[OK]   TPM 2.0 Ready   : YES
+[OK]   WinBio Service  : Running
+       PreReqResult    : N/A (only visible during provisioning)
+
+       Registry values:
+       HKLM  UseCertificateForOnPremAuth  : 0  [OK]
+       HKCU  UseCertificateForOnPremAuth  : 0  [OK - breakthrough]
+       MDM   UseCertificateForOnPremAuth  : 0  [OK]
+       HKLM  Enabled                      : 1  [OK]
+       HKLM  UseCloudTrustForOnPremAuth   : 1  [OK]
+
+[OK]   VERDICT: Hello is provisioned and all registry values are correctly set.
+[INFO] ═══ Status check completed ═══
+```
+
+## �🚀 Quick Start
 
 ### Option 1: Double-click
 
