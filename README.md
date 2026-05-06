@@ -35,7 +35,48 @@ It also enables convenience PIN, biometrics, and domain PIN logon, then opens **
 | **Reset** | Remove all script-written values and let Intune re-push defaults. Optionally clears the NGC container and triggers MDM sync |
 | **Status** | Read-only system check: Entra join, PRT, TPM, WinBio, all registry values, provisioning verdict |
 
-## 🚀 Quick Start
+## �️ How It Works
+
+```mermaid
+flowchart TD
+    Start([Run script]) --> Menu{Mode?}
+
+    Menu -->|Apply| PF[Preflight checks]
+    Menu -->|Rollback| RB[Select backup snapshot]
+    Menu -->|Reset| RS[Remove script values]
+    Menu -->|Status| ST[Read-only system check]
+
+    PF --> PF1{Entra joined?\nPRT valid?\nTPM ready?}
+    PF1 -->|❌ Fail| Abort([Abort with guidance])
+    PF1 -->|✅ Pass| BAK[Registry backup\n.reg exports to TEMP]
+
+    BAK --> W1[Write HKLM GP layer\nUseCertificateForOnPremAuth=0]
+    W1 --> W2[Write HKCU per-user layer\nUseCertificateForOnPremAuth=0]
+    W2 --> W3[Write MDM/CSP tenant layer\nOverride Intune push]
+    W3 --> PIN[Enable PIN + Biometrics\n+ Domain PIN logon]
+    PIN --> VER{Post-write\nverification}
+    VER -->|❌ Values reverted| AutoRB[Auto-rollback prompt]
+    VER -->|✅ Confirmed| Settings[Open Settings → Sign-in options]
+    Settings --> NGC[Poll NGC container\nfor provisioning]
+    NGC --> Done([✅ Hello ready])
+
+    RB --> RB2[Restore .reg files]
+    RB2 --> SO1[Optional sign-out countdown]
+
+    RS --> RS2[Remove all script keys]
+    RS2 --> NGC2[Optional NGC clear\n+ MDM sync]
+    NGC2 --> SO2[Optional sign-out countdown]
+
+    ST --> ST2[Report: Entra join, PRT,\nTPM, WinBio, registry values,\nprovisioning verdict]
+
+    style PF1 fill:#7a5500,color:#fff
+    style VER fill:#7a5500,color:#fff
+    style Done fill:#2d6a2d,color:#fff
+    style Abort fill:#8b1a1a,color:#fff
+    style AutoRB fill:#8b1a1a,color:#fff
+```
+
+## �🚀 Quick Start
 
 ### Option 1: Double-click
 
