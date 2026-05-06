@@ -35,7 +35,7 @@ It also enables convenience PIN, biometrics, and domain PIN logon, then opens **
 | **Reset** | Remove all script-written values and let Intune re-push defaults. Optionally clears the NGC container and triggers MDM sync |
 | **Status** | Read-only system check: Entra join, PRT, TPM, WinBio, all registry values, provisioning verdict |
 
-## �️ How It Works
+## 🗺️ How It Works
 
 ```mermaid
 flowchart TD
@@ -76,7 +76,7 @@ flowchart TD
     style AutoRB fill:#8b1a1a,color:#fff
 ```
 
-## �🚀 Quick Start
+## 🚀 Quick Start
 
 ### Option 1: Double-click
 
