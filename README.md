@@ -1,4 +1,4 @@
-# Enable-WindowsHello
+﻿# Enable-WindowsHello
 
 <!-- BADGES:START -->
 [![License](https://img.shields.io/github/license/5a9awneh/Enable-WindowsHello)](LICENSE) [![PowerShell](https://img.shields.io/badge/PowerShell-5.1%2B-blue?style=flat&logo=powershell)](https://learn.microsoft.com/en-us/powershell/) [![Windows](https://img.shields.io/badge/Windows-0078D6?style=flat&logo=windows&logoColor=white)](https://www.microsoft.com/windows) [![Last Commit](https://img.shields.io/github/last-commit/5a9awneh/Enable-WindowsHello)](https://github.com/5a9awneh/Enable-WindowsHello/commits/main) [![Tests](https://img.shields.io/badge/tests-56%20passing-success?style=flat)](https://github.com/5a9awneh/Enable-WindowsHello) [![Status](https://img.shields.io/badge/status-production%20ready-brightgreen?style=flat)](https://github.com/5a9awneh/Enable-WindowsHello) [![Runs Locally](https://img.shields.io/badge/runs_locally-privacy--first-green?style=flat)](https://github.com/5a9awneh/Enable-WindowsHello) [![Human in the Loop](https://img.shields.io/badge/human--in--the--loop-%E2%9C%93-brightgreen?style=flat)](https://github.com/5a9awneh/Enable-WindowsHello)
@@ -76,7 +76,7 @@ flowchart TD
     style AutoRB fill:#8b1a1a,color:#fff
 ```
 
-## �️ Sample Output
+## 🖥️ Sample Output
 
 **Interactive menu** (when run without `-Mode`):
 
@@ -113,7 +113,7 @@ Select [1-4]:
 [INFO] ═══ Status check completed ═══
 ```
 
-## �🚀 Quick Start
+## 🚀 Quick Start
 
 ### Option 1: Double-click
 
